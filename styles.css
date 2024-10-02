@@ -1,0 +1,703 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    margin: 0;
+    
+    transition: background-color 0.3s, color 0.3s;
+}
+.middle{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.wrapper{
+    position: relative;
+    width: 66rem;
+    height: 45rem;
+    padding: 2rem;
+    perspective: 250rem;
+    animation:  show-animate 2s forwards;
+    
+    
+    }
+    @keyframes show-animate {
+     0%,30% {
+        opacity: 0;
+        transform: rotate(-20deg);
+     } 
+     100% {
+        opacity: 1;
+        transform: rotate(0deg);
+     }  
+    
+    }
+    .cover {
+    
+        position: absolute;
+        background: #891515;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: var(--cover-color);
+        box-shadow:var(--box-shadow);
+        border-top-right-radius:  .6rem;
+        border-bottom-left-radius: .6rem;
+        transform-origin: right;
+    
+    }
+    
+    .cover.cover-left{
+        z-index: -1;
+    }
+    
+    .cover.cover-right{
+        z-index: 100;
+        transition: transform 1s cubic-bezier(.645, .045, .355, 1);
+    }
+    
+    .cover .cover-right.turn{
+        transform: rotateY(180deg);
+    }
+    
+    .book{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        perspective: 250rem;
+    
+    }
+    
+    .book .book-page{
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        background: var(--page-color);
+        box-shadow: 0 0 .6rem rgba(0,0,0,.1);
+        display: flex;
+        padding: 2rem;
+    }
+    
+    .book-page.page-left{
+        box-shadow: -.6rem .6rem .6rem rgba(0,0,0,.1);
+    }
+    
+    .profile-page{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: .5s ease;
+    
+    }
+     
+    .profile-page img {
+        display: block;
+        width: 46%;
+        border-radius:50%;
+        height: 50%;
+        border: 2px solid;/* var(--main-color); */
+        object-fit: cover;
+    }
+    
+    .profile-page h1{
+        margin-top: auto;
+        font-size:2.0rem ;
+        line-height: .1rem;
+    }
+    
+    .profile-page h3{
+        
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 1.6rem;
+        color: var(--main-color);
+        
+    
+    }
+    
+    .profile-page .social-medial a{
+        margin:  .6rem 1 .8rem;
+    }
+    
+    .profile-page .social-media a{
+    
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: transparent;
+        border: var(--border);
+        border-radius: 50%;
+        font-size: 1.3rem;
+        color: var(--main-color);
+        margin: 0  .3rem;
+        margin-bottom: 1rem;
+        transition:  .5s;
+    }
+    
+    .profile-page .social-media a:hover {
+        background: var(--main-color);
+        color: var(--white-color);
+    }
+    
+    .profile-page p {
+        text-align: justify;
+    }
+    
+    .profile-page .btn-box {
+        margin-top: 1.2rem;
+        transition:  .5s;
+    }
+    
+    .btn{
+        display: inline-flex;
+        width: 9.5rem;
+        height: 3rem;
+        background: var(--main-color);
+        border: var(--border);
+        border-radius: .3rem;
+        font-size: 1rem;
+        color: var(--white-color);
+        font-weight: 500;
+        justify-content: center;
+        align-items: center;
+        margin: 0 1rem;
+        transition:  .5s;
+    }
+    
+    .btn:hover {
+        background: transparent;
+        color: var(--main-color);
+    }
+    
+    .btn-box .btn:nth-childe(2) {
+        background: transparent;
+        color: var(--main-color);
+    }
+    
+    .btn-box .btn:nth-childe(2):hover {
+        background: var(--main-color);
+        color: var(--white-color);
+    }
+    
+    /*2.page Skill Section*/
+    .book-page.page-right{
+        position: absolute;
+        right: 0;
+        transform-style: preserve-3d;
+        transform-origin: left;
+        transition: transform 1s cubic-bezier(.645, .045, .355, 1);
+    }
+    
+    .book-page.page-right.turn{
+     transform: rotateY(-180deg);
+    }
+    .title{
+         text-align: center;
+         margin-bottom: 1rem;
+    }
+    .book-page .page-front,
+    .book-page .page-back{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--page-color);
+        padding: 1.3rem 2rem;
+    }
+    .book-page .page-front{
+     transform: rotateY(0deg) translateZ(1px);   
+    }
+    
+    .book-page .page-back{
+        transform: rotateY(180deg) translateZ(1px);     
+    }
+    
+    .page-back  p{
+    font-size: 1.2rem;
+    /*color: brown;*/
+    /*background-color: #7c6969;*/
+    }
+    
+    /* .page-back .About-content p{
+        font-size: .35;
+    } */
+    .skills-box{
+        display: flex;
+       flex-wrap: wrap;
+       gap: 1.5rem;
+    }
+    
+    .skills-box .skills-content {
+      
+        flex: 1 1 20rem;
+    }
+    
+    .skills-content  h3{
+       font-size: 1.1rem; 
+       line-height: 1;
+       margin-top: .3rem;
+       margin-bottom: .3rem;
+    }
+    .skills-content .content{
+        display: flex;
+        flex-wrap: wrap;
+        gap: .8rem;
+    }
+    
+    .skills-content .content span {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 6rem;
+        height: 5rem;
+        border: var(--border);
+        border-radius:  .3rem;
+        font-weight:600;
+        transition: .3s ease;
+    }
+    
+    .skills-content .content span:hover{
+        box-shadow: var(--box-shadow);
+    }
+    
+    .skills-content .content span i {
+        font-size: 3rem;
+        color: var(--main-color);
+    }
+    .number-page {
+        position: absolute;
+        bottom: 1.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    /*2 page */
+    .nextprev-btn{
+     position: absolute;
+     bottom: .9rem;
+     right: 1.5rem;
+     width: 2rem;
+     height: 2rem;
+     cursor: pointer;
+     font-size: 2rem;
+     color: var(--second-text-color);   
+     display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s
+    }
+    .nextprev-btn:hover{
+      color: var(--main-color);
+    }
+    
+    .nextprev-btn.back{
+     left: 1.5rem;   
+    }
+    
+    .title{
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .des{
+        text-align: justify;
+    }
+    .title2{
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .education-box{
+     border-left: var(--border);
+    }
+    .education-box .educ-content{
+        position: relative;
+        padding-left: 1.6rem;
+        margin-bottom: 1.2rem;
+    
+    }
+    
+    .education-box .educ-content::before{
+      content: '';
+      position: absolute;
+      background: seagreen;
+      top: 0;
+      left: -0.65rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: var(--main-color);
+      border-radius: 50%;
+    }
+    .educ-content .year{
+     color: var(--main-color);
+    }
+    
+    .educ-content .year{
+    margin-right: .4rem;
+    }
+    .educ-content p{
+        font-size: .90rem;
+    }
+    
+     .About-content p{
+        font-size: .90rem;
+        flex: 1 1 10rem;
+        /* border: var(--border);
+        border-radius: .5rem; */
+        padding: .8rem .5rem 1.1rem;
+        text-align: center;
+        color: rgb(44, 7, 81);
+        /* transition: .3s ease; */
+    } 
+    
+    /* .About-content ul li{
+        font-size: .25rem;
+    } */
+    
+    .About-content ul li span{
+        margin-top: 30%;
+        padding-top: 50%;
+        font-size: 1.2rem;
+       color: rgb(34, 31, 29); 
+    }
+    
+    
+    
+    .Coursec-box{
+        display: flex;
+        flex-wrap: wrap;
+       
+    }
+    .Coursec-box .courses-content{
+        flex: 1 1 10rem;
+        border: var(--border);
+        border-radius: .5rem;
+        padding: .8rem .5rem 1.1rem;
+        text-align: center;
+        transition: .3s ease;
+    }
+    .Coursec-box .courses-content:hover{
+    box-shadow: var(--box-shadow);
+    }
+    
+    .courses-content i{
+    font-size: 1.5rem;
+    color: var(--main-color);
+    }
+    
+    .courses-content h3{
+       font-size: 1.1rem;
+    
+    }
+    .courses-content h1{
+        font-size: 1rem;
+    }
+    
+    .courses-content p{
+        font-size: .90rem;
+        margin: .1rem 0 .2rem;
+        /* color: rgb(97, 60, 11); */
+    }
+    
+    
+    .courses-content btn{
+        margin: auto;
+       width: 8rem; 
+       height: 2.5rem;
+    }
+    
+    
+    /**Page three**/
+    .portfolio-box .img-box{
+        display: flex;
+        margin-left: auto;
+        width: 100%;
+        height: 17rem;
+        border: var(--border);
+        border-radius:  .5rem;
+        overflow: hidden;
+        /*The overflow CSS shorthand property sets the desired behavior when content does not fit in the parent element box (overflows) 
+        in the horizontal and/or vertical direction.*/
+    }
+    .portfoli-boxo .img-box img{
+        width: 90%;
+        object-fit:cover;
+        /*The object-fit CSS property sets how the content of \
+        a replaced element, such as an <img> or <video>,
+         should be resized to fit its container.*/
+         transition: 5s ease;
+    }
+    
+    .portfolio-box .img-box:hover img{
+        transform: scale(1.1);
+        /*The transform CSS property lets you rotate, scale, skew, or translate an element.
+         It modifies the coordinate space of the CSS*/
+    }
+    .portfolio-box .info-box{
+        margin: 1rem 0 1.5rem;
+    }
+    
+    .portfolio-box .info-box .info-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .portfolio-box .info-box .info-title h3{
+        font-size: 1.3rem;
+    }
+    
+    .portfolio-box .info-box .info-title a{
+        display: flex;
+        align-items: center;
+        color: var(--main-color);
+    }
+    .portfolio-box .info-box .info-title a i{
+        margin-left: .3rem;
+        
+            
+    }
+    .portfolio-box .info-box  p i{
+        margin-top: auto;
+       align-items: center;
+    margin-right: .3rem ;
+    font-size: 1.5rem;
+    color: var(--main-color);
+    }
+    
+    .portfolio-box .info-box p:nth-of-type(1){
+        font-weight: 600;
+        /*The font-weight CSS property sets the weight (or boldness) of the font. The weights available 
+        depend on the font-family that is currently set*/
+    }
+    .portfolio-box  .btn-box{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .portfolio-box .btn-box .btn{
+        margin: 0 1.15rem;
+    
+    }
+    .contact-box{
+    text-align: center;
+    }
+    
+    .contact-box .field{
+        width: 100%;
+        background: transparent;
+        border: var(--border);
+        border-radius: .3rem;
+        padding: .8rem;
+        font-size: 1rem;
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-box .field::placeholder{
+    color: var(--text-color);
+    
+    }
+    .contact-box textarea {
+        resize: none;
+        height: 15rem;
+    }
+    
+    .contact-box .btn{
+     cursor: pointer;
+     /*The cursor CSS property sets the mouse cursor, if any,
+      to show when the mouse pointer is over an element.*/
+    }
+    
+    .back-profile{
+        position: absolute;
+        bottom: 1.2rem;
+        right: 2rem;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        border: var(--border);
+        border-radius: .3rem;
+        font-size: 1.1rem;
+        color: var(--main-color);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        transition: .5s;
+    }
+    
+    .back-profile:hover{
+    background: var(--main-color);
+    color: var(--white-color);
+    }
+    
+    .back-profile p{
+    
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) scale(.5);
+        font-size: 1rem;
+        color: var(--main-color);
+        opacity: 0;
+        /*The opacity CSS property sets the opacity of an element. Opacity is the degree to which content behind an element is hidden, 
+        and is the opposite of transparency.*/
+        transition: .5s;
+    }
+    
+    
+    .back-profile:hover p{
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+        top: -1.8rem;
+    
+    }
+    
+    
+    
+    
+        
+
+:root{
+    --bg-color:#032633;
+    --main-color:#7794f9;
+    --text-color:#333;
+    --second-text-color:#555;
+    --white-color:#fff;
+    --cover-color:linear-gradient(45deg, #5ce1e6, #f32fd9);
+    
+    --page-color:linear-gradient(90deg, #fff, #ddd);
+    --border: .125rem solid #dc16d8;
+    --box-shadow:0 0 .6rem rgba(0,0,0, .2);
+
+}
+
+
+body.dark-mode {
+    background-color: #333;
+    color: #4B7392;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .navbar {
+    background-color: #222;
+}
+
+.theme-toggle {
+    width: 70px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    position: relative;
+}
+
+.logo {
+    height: 60px; /* Ajusta esto según el tamaño de tu logo */
+    width: auto;
+    transition: opacity 0.3s;
+}
+
+.hidden {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circles-container {
+    display: flex;
+    gap: 0.5rem; /* Espacio entre los círculos */
+}
+
+.circle {
+    display: flex; /* Añade Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Hace el contenedor circular */
+}
+
+.circle img {
+    width: 70%; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.lila {
+    background-color: #D8A1FF;
+}
+
+.yellow {
+    background-color: #40CAF9;
+}
+
+.red {
+    background-color: #B3ED81;
+}
+.perfilprofileblob{
+  
+    
+    width: 200px;
+    height: 200px;
+    left: 40%;
+    top: 450px;
+    overflow: hidden;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: blob-animation 8s ease-in-out infinite;
+    align-items: center;
+   
+  }
+  .perfilprofileblob img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @keyframes blob-animation {
+    0% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    25% {
+        border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    }
+    50% {
+        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    }
+    75% {
+        border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+    }
+    100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+  }

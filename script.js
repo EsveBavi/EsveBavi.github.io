@@ -122,9 +122,4 @@ setTimeout(() => {
         },(index + 1) * 200 +2100)
     })
 
-  document.getElementById('downloadBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            var driveLink = 'https://drive.google.com/file/d/17ekT8utgEufBsVQI3ZpEqwiuW7zhOS1C/view?usp=sharing';
-            var downloadLink = driveLink.replace('/view?usp=sharing', '/export?format=pdf');
-            window.open(downloadLink, '_blank');
-        });
+
